@@ -3,11 +3,11 @@ const bodyParser = require("body-parser");
 // const date = require(__dirname + "/date.js");
 const mongoose = require('mongoose')
 const _ = require('lodash')
-const env = require('dotenv')
+const env = require('dotenv').config()
 
 const app = express();
 
-const uri = 'mongodb+srv://julius-java:rhema2016@blogdb-cluster.z4mymf3.mongodb.net/todolistDB';
+const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASSWORD + "@blogdb-cluster.z4mymf3.mongodb.net/todolistDB";
 
 mongoose.set('strictQuery', false)
 
