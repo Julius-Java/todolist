@@ -136,9 +136,7 @@ app.post("/delete", (req, res) => {
                 console.log(err);
             } else {
                 console.log("Item successfully deleted from DB");
-                setTimeout(() => {
-                    res.redirect('/')
-                }, 300)
+                res.redirect('/')
             }
         })
     } else {
