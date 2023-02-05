@@ -84,6 +84,14 @@ app.get("/", (req, res) => {
             }
         }
     })
+
+    List.find({}, (err, items) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(items);
+        }
+    })
 });
 
 app.post("/", (req, res) => {
