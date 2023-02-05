@@ -1,6 +1,6 @@
 html {
   background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  background-image: -webkit-linear-gradient(70deg, #A683E3 50%, #E4E9FD 50%);
   min-height: 1000px;
   font-family: 'helvetica neue';
 }
@@ -8,6 +8,11 @@ html {
 h1 {
   color: #fff;
   padding: 10px;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
 }
 
 .box {
@@ -111,8 +116,74 @@ form#form :last-child {
   background-color: #A683E3;
 }
 
+.fa-solid {
+  color: #A683E3;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+}
+
+.menu-icon, .container {
+  position: fixed;
+}
+
+.menu-icon {
+  z-index: 3;
+  top: 3.5rem;
+  left: 1.8rem;
+}
+
+.container {
+  width: 350px;
+  background-color: white;
+  min-height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  top: 150px;
+  left: -400px;
+  z-index: 2;
+}
+
+.container button {
+  border-width: 0;
+  border-color: transparent;
+  padding: 0.9rem 0.6rem;
+  cursor: pointer;
+  color: white;
+  background-color: #A683E3;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+i.fa-solid.rotate-half {
+  transform: rotate(-90deg);
+}
+
+i.fa-solid.rotate-full {
+  transform: rotate(-180deg);
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
 footer {
   color: white;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+@media (max-width: 1059px) {
+
 }
