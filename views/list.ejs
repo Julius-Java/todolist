@@ -1,16 +1,47 @@
-<%- include("header") %> 
+<%- include("header") %>
 
-    <div id="overlay"></div>
-    <div class="menu-icon">
-        <i class="fa-solid fa-bars fa-2x"></i>
-    </div>
-    <div class="container">
-        <button>Create New List</button>
-    </div>
+
 
 
     <div class="box" id="heading">
         <h1><%= listTitle %></h1>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div class="menu-icon">
+        <i class="fa-solid fa-bars fa-2x"></i>
+    </div>
+
+    <div class="container">
+        <form action="/add-category" method="post" class="categoryDiv">
+            <input type="text" name="newCategory" placeholder="New Todo Category" autocomplete="off">
+            <button type="submit">Create New Category</button>
+            <input type="hidden" name="list" value="<%= listTitle %>">
+        </form>
+
+        <div class="box">
+            <form action="/" get="post" class="category-list">
+                <div class="category-item">
+                    <input class="default" type="checkbox" name="category" value="Default" onchange="this.form.submit()">
+                    <p>Default</p>
+                </div>
+            </form>
+
+
+            <% if (typeof categories !== 'undefined') { %>
+                <% categories.forEach((list) => { %>
+                <% if (list.name !== 'Favicon.ico') {%>
+                <form action="/change-category" method="post" class="category-list">
+                    <div class="category-item">
+                        <input class="itemClass" type="checkbox" name="category" value="<%= list.name %>" onchange="this.form.submit()">
+                        <p><%= list.name %></p>
+                    </div>
+                </form>
+                <% } %>
+                <% }) %>
+            <% } %>
+        </div>
     </div>
 
     <div class="box">
@@ -26,7 +57,7 @@
         <% })  %>
 
         <form id="form" action="/" method="post">
-            <input id="Item" type="text" name="newItem" placeholder="New Item" autocomplete="off">
+            <input style="width: 85%;" id="Item" type="text" name="newItem" placeholder="New Item" autocomplete="off">
             <button class="submit-btn" type="submit" name="list" value= <%= listTitle %> >+</button>
         </form>
     </div>
