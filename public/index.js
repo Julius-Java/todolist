@@ -1,5 +1,18 @@
 let form = $('#form');
 
+let pageTitle = $('h1').text()
+
+let inputs = $('.itemClass').data("item-class")
+
+if (pageTitle === "Today") {
+  $('.default').prop('checked', true)
+} else {
+  $("input[value='" + pageTitle + "']").prop("checked", true);
+  $("input[value!='" + pageTitle + "']").prop("checked", false);
+}
+
+let categoryForm = $('.categoryDiv')
+
 form.submit((e) => {
     let newItem = $('#Item').val();
     if (newItem.length == 0) {
@@ -7,6 +20,14 @@ form.submit((e) => {
         alert("Please enter a todo item");
     }
 });
+
+categoryForm.submit((e) => {
+  let category = $('.categoryDiv input').val();
+  if (category.length == 0) {
+    e.preventDefault();
+    alert("Please enter a todo category")
+  }
+})
 
 const menuBtn = $('i.fa-solid')
 const sideBar = $('.container')
@@ -23,7 +44,7 @@ menuBtn.click(() => {
 
     if (!menuOpen) {
         sideBar.css({
-          "left": "0.9rem"
+          "left": "1.8rem"
         });
 
         $("#overlay").css({
@@ -33,7 +54,7 @@ menuBtn.click(() => {
         menuOpen = true;
       } else {
         sideBar.css({
-          "left": "-400px"
+          "left": "-450px"
         });
 
         $("#overlay").css({
@@ -43,3 +64,6 @@ menuBtn.click(() => {
         menuOpen = false;
       }
 })
+
+
+
